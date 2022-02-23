@@ -1,1 +1,1 @@
-my new website **boldness** updated.
+my new website **boldness** updates.
