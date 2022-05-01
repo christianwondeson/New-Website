@@ -39,6 +39,8 @@ exitImg.style.background = "black";
 //links and list part
 const UnListsOne = document.createElement("ul");
 navItem_1.append(UnListsOne);
+UnListsOne.setAttribute('class', 'navlink');
+
 
 const value = ["home", "features", "pricing"];
 console.log(value.length);
@@ -57,7 +59,7 @@ for(let i = 0; i < value.length; i++){
 
 const UnListstwo = document.createElement("ul");
 navItem_1.append(UnListstwo);
-
+UnListstwo.setAttribute('class', 'links');
 const valueAction = ["contact", "go premium"];
 for(let j = 0; j < valueAction.length; j++)
 {

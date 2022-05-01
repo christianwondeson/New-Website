@@ -19,6 +19,7 @@
 {
     background: var(--navBar-clr);
     padding: 10px;
+    width: auto;
 }
 .logo
 {
@@ -34,16 +35,84 @@ span
 }
 .nav-links
 {
+    display: flex;
+}
+.navlink
+{
+    display: flex;
+    padding: 0.3em 2em;
+}
+.navlink li
+{
+    font-size: 20px;
+    list-style: none;
+    padding: 0.2em 0.3em;
+}
+.navlink a
+{
+    text-decoration: none;
+    padding-left: 1.5em;
+    padding-right: 1em;
+    padding-top: 0.1em;
+    padding-bottom: 0.1em;
+    color: #20272e;
+    font-weight: bold;
+
+}
+.navlink a:hover
+{
+    border-radius: 1px solid black;
+    border-radius: 10px;
+    color: var(--bg-clr);
+    background:black;
+    transition: ease-in 0.5s;
+}
+.links
+{
+    display: flex;
+    margin-right: 20px;
+    margin-left: 5em;
+    padding: 0.3em 2em;
+}
+.links li
+{
+    font-size: 20px;
+    padding: 0.2em;
+}
+.links li a
+{
+    text-decoration: none;
+    padding-left: 1.5em;
+    padding-right: 1em;
+    padding-top: 0.1em;
+    padding-bottom: 0.1em;
+    color: var(--prim-color);
+    font-size: 20px;
+    font-weight: bold;
+    
+}
+.links li a:hover
+{
+    border: 1px solid black;
+    background:var(--prim-color);
+    color: white;
+    border-radius: 10px;
+    transition: all ease-in-out 0.5s;
+}
+.mobile-exit
+{
     display: none;
 }
 .container
 {
+    
     display: flex;
     place-content: space-between;
 }
 .mobile-menu
 {
- cursor: pointer;   
+ cursor: pointer;
+ display: none;   
 }
 a
 {
@@ -152,7 +221,7 @@ section.feature-sec
 {
     font-size: 1.1em;
     margin-left: 2em;
-    margin-bottom: 1em;
+    margin-bottom: 2em;
     background: transparent;
     position: relative;
 
@@ -170,7 +239,14 @@ section.feature-sec
 }
  .ftS-img
 {
-display: none;
+    height: 50%;
+    width: 60%;
+    margin:1em 10em;
+    border: 1px solid white;
+    position: relative;
+    left: 25%;
+    top: 8em;
+    border-radius: 30px;
 }
 .testimonial-sec
 {
@@ -296,9 +372,52 @@ input[type = "submit"]:hover
     height:350px;
     border-radius: 10px;
 }
+@media screen and (max-width : 870px)
+{
+    .nav-links
+    {
+        width: 870px;
+        margin: 0 auto;
+    }
+    .mobile-menu
+    {
+        display:none;
+    }
+  .container
+  {
+      width: 870px;
+      margin: 0 auto;
+  }
+  .feature-sec
+  {
+      width: 870px;
+      margin: 0 auto;
+  }
+  .testimonial-sec
+  {
+    width: 870px;
+    margin: 0 auto;
+  }
+  .contact-sec
+  {
+    width: 870px;
+    margin: 0 auto;
+  }
 
-
-
+}
+@media(max-width : 540px)
+{
+    .nav-links
+    {
+        display: none;
+    }
+    .mobile-menu
+    {
+        display: flex;
+        place-content: space-between;
+        margin-right: 20px;
+    }
+}
 
 
 
