@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Menu</title>
+    <title>Scroll</title>
     <!-- font-awesome -->
     <link
       rel="stylesheet"
@@ -13,45 +13,104 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <!--section menu-->
-    <section class="menu">
-      <!--title-->
-      <div class="title">
-        <h2>Our Menu</h2>
-        <div class="underline"></div>
-      </div>
-
-      <!--filter btn-->
-      <div class="btn-container">
-        <!-- <button class="filter-btn" type="button" data-id="all">all</button>
-        <button class="filter-btn" type="button" data-id="breakfast">
-          Breakfast
-        </button>
-        <button class="filter-btn" type="button" data-id="lunch">lunch</button>
-        <button class="filter-btn" type="button" data-id="shakes">
-          shakes
-        </button> -->
-      </div>
-      <!--menu items-->
-      <div class="section-center">
-        <!-- single item -->
-        <!-- <article class="menu-item">
-          <img src="./menu-item.jpeg" alt="menu item" class="photo" />
-          <div class="item-info">
-            <header>
-              <h4>buttermilk pancakes</h4>
-              <h4 class="price">$15</h4>
-            </header>
-            <p class="item-text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Repudiandae, sint quam. Et reprehenderit fugiat nesciunt inventore
-              laboriosam excepturi! Quo, officia.
-            </p>
+    <!--header-->
+    <header id="home">
+      <!--navbar-->
+      <nav id="nav">
+        <div class="nav-center">
+          <!--nav header-->
+          <div class="nav-header">
+            <img src="./logo.svg" alt="logo" class="logo" />
+            <button class="nav-toggle">
+              <i class="fas fa-bars"></i>
+            </button>
           </div>
-        </article> -->
-        <!-- end of single item -->
+          <!--links-->
+          <div class="links-container">
+            <ul class="links">
+              <li>
+                <a href="#home" class="scroll-link">home</a>
+              </li>
+              <li>
+                <a href="#about" class="scroll-link">about</a>
+              </li>
+              <li>
+                <a href="#services" class="scroll-link">services</a>
+              </li>
+              <li>
+                <a href="#tours" class="scroll-link">tours</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!--banner-->
+      <div class="banner">
+        <div class="container">
+          <h1>scroll project</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint ipsa,
+            cupiditate itaque velit quam repellat id deserunt provident.
+            Doloribus dolor sint modi enim molestias consequuntur similique,
+            voluptates iste facilis et veritatis hic deserunt! Nam!
+          </p>
+          <a href="#tours" class="scroll-link btn btn-white">explore tours</a>
+        </div>
+      </div>
+    </header>
+    <!--section about us-->
+    <section id="about" class="section">
+      <div class="title">
+        <h2>about<span>us</span></h2>
+        <div class="container">
+          <p style="color: black">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deserunt,
+            ipsam sint soluta culpa, molestias nobis eligendi aliquid mollitia
+            dolorum officiis expedita ad eos tenetur quasi eum! Nobis et
+            expedita porro exercitationem delectus, amet accusamus!
+          </p>
+        </div>
       </div>
     </section>
+    <!--services-->
+    <section id="services" class="section">
+      <div class="title">
+        <h2>our<span>services</span></h2>
+        <div class="container">
+          <p style="color: black">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deserunt,
+            ipsam sint soluta culpa, molestias nobis eligendi aliquid mollitia
+            dolorum officiis expedita ad eos tenetur quasi eum! Nobis et
+            expedita porro exercitationem delectus, amet accusamus!
+          </p>
+        </div>
+      </div>
+    </section>
+    <!--tours-->
+    <section id="tours" class="section">
+      <div class="title">
+        <h2>featured<span>tours</span></h2>
+        <div class="container">
+          <p style="color: black">
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deserunt,
+            ipsam sint soluta culpa, molestias nobis eligendi aliquid mollitia
+            dolorum officiis expedita ad eos tenetur quasi eum! Nobis et
+            expedita porro exercitationem delectus, amet accusamus!
+          </p>
+        </div>
+      </div>
+    </section>
+    <!--footer-->
+    <footer class="section">
+      <p>
+        copyright &copy: backroas trave tours company
+        <span class="date"></span> .all rights reserved
+      </p>
+    </footer>
+    <!--btn to top-->
+    <a class="scroll-link top-link" href="#home">
+      <i class="fas fa-arrow-up"></i>
+    </a>
     <!-- javascript -->
     <script src="app.js"></script>
   </body>

@@ -1,147 +1,66 @@
-const menu = [
-  {
-    id: 1,
-    title: "buttermilk pancakes",
-    category: "breakfast",
-    price: 15.99,
-    img: "./images/item-1.jpeg",
-    desc: `I'm baby woke mlkshk wolf bitters live-edge blue bottle, hammock freegan copper mug whatever cold-pressed `,
-  },
-  {
-    id: 2,
-    title: "diner double",
-    category: "lunch",
-    price: 13.99,
-    img: "./images/item-2.jpeg",
-    desc: `vaporware iPhone mumblecore selvage raw denim slow-carb leggings gochujang helvetica man braid jianbing. Marfa thundercats `,
-  },
-  {
-    id: 3,
-    title: "godzilla milkshake",
-    category: "shakes",
-    price: 6.99,
-    img: "./images/item-3.jpeg",
-    desc: `ombucha chillwave fanny pack 3 wolf moon street art photo booth before they sold out organic viral.`,
-  },
-  {
-    id: 4,
-    title: "country delight",
-    category: "breakfast",
-    price: 20.99,
-    img: "./images/item-4.jpeg",
-    desc: `Shabby chic keffiyeh neutra snackwave pork belly shoreditch. Prism austin mlkshk truffaut, `,
-  },
-  {
-    id: 5,
-    title: "egg attack",
-    category: "lunch",
-    price: 22.99,
-    img: "./images/item-5.jpeg",
-    desc: `franzen vegan pabst bicycle rights kickstarter pinterest meditation farm-to-table 90's pop-up `,
-  },
-  {
-    id: 6,
-    title: "oreo dream",
-    category: "shakes",
-    price: 18.99,
-    img: "./images/item-6.jpeg",
-    desc: `Portland chicharrones ethical edison bulb, palo santo craft beer chia heirloom iPhone everyday`,
-  },
-  {
-    id: 7,
-    title: "bacon overflow",
-    category: "breakfast",
-    price: 8.99,
-    img: "./images/item-7.jpeg",
-    desc: `carry jianbing normcore freegan. Viral single-origin coffee live-edge, pork belly cloud bread iceland put a bird `,
-  },
-  {
-    id: 8,
-    title: "american classic",
-    category: "lunch",
-    price: 12.99,
-    img: "./images/item-8.jpeg",
-    desc: `on it tumblr kickstarter thundercats migas everyday carry squid palo santo leggings. Food truck truffaut  `,
-  },
-  {
-    id: 9,
-    title: "quarantine buddy",
-    category: "shakes",
-    price: 16.99,
-    img: "./images/item-9.jpeg",
-    desc: `skateboard fam synth authentic semiotics. Live-edge lyft af, edison bulb yuccie crucifix microdosing.`,
-  },
-  {
-    id: 10,
-    title: "steak dinner",
-    category: "dinner",
-    price: 106.99,
-    img: "./images/item-10.jpeg",
-    desc: `skateboard fam synth authentic semiotics. Live-edge lyft af, edison bulb yuccie crucifix microdosing.`,
-  },
-];
+// Element.getBoundingClientRect() method returns the size of an element and its position relative to the viewport.
+// pageYOffset is a read - only window property that returns the number of pixels the document has been scrolled vertically.
+// slice extracts a section of a string without modifying original string
+//offsetTop - A Number, representing the top position of the element, in pixels
 
-const sectionCenter = document.querySelector(".section-center");
+// ********** set date ************
+const date = document.querySelector(".date");
+date.innerHTML = new Date().getFullYear();
 
-const buttonContainer = document.querySelector(".btn-container");
+// ********** close links ************
+const navToggle = document.querySelector(".nav-toggle");
+const linksContainer = document.querySelector(".links-container");
+const links = document.querySelector(".links");
 
-window.addEventListener("DOMContentLoaded", () => {
-  displayMenuItems(menu);
-  menuButton();
+navToggle.addEventListener("click", () => {
+  const containerHeight = linksContainer.getBoundingClientRect().height;
+  const linkHeight = links.getBoundingClientRect().height;
+  console.log(containerHeight);
+  console.log(linkHeight);
+
+  if (containerHeight === 0) {
+    linksContainer.style.height = `${linkHeight}px`;
+  } else {
+    linksContainer.style.height = 0;
+  }
 });
 
-function displayMenuItems(menuitems) {
-  let displayMenu = menuitems.map((item) => {
-    return `<article class="menu-item">
-    <img src=${item.img} alt=${item.title} class="photo" />
-    <div class="item-info">
-      <header>
-        <h4>${item.title}</h4>
-        <h4 class="price">$${item.price}</h4>
-      </header>
-      <p class="item-text">${item.desc}</p>
-    </div>
-  </article>`;
-  });
-  displayMenu = displayMenu.join("");
-  sectionCenter.innerHTML = displayMenu;
-  //console.log(displayMenu);
-}
+const navbar = document.getElementById("nav");
+const topLink = document.querySelector(".top-link");
 
-function menuButton() {
-  const categories = menu.reduce(
-    (values, item) => {
-      if (!values.includes(item.category)) {
-        values.push(item.category);
-      }
-      return values;
-    },
-    ["all"]
-  );
+// ********** fixed navbar ************
+window.addEventListener("scroll", () => {
+  console.log(window.pageYOffset);
+  const scrollHeight = window.pageYOffset;
+  const navHeight = navbar.getBoundingClientRect().height;
+  console.log(navHeight);
+  if (scrollHeight > navHeight) {
+    navbar.classList.add("fixed-nav");
+  } else {
+    navbar.classList.remove("fixed-nav");
+  }
 
-  console.log(categories);
+  if (scrollHeight > 500) {
+    topLink.classList.add("show-link");
+  } else {
+    topLink.classList.remove("show-link");
+  }
+});
+// ********** smooth scroll ************
+// select links
+const scrollLinks = document.querySelectorAll(".scroll-link");
 
-  const categoryBtn = categories
-    .map((category) => {
-      return `<button class="filter-btn" type="button" data-id=${category}>${category}</button>`;
-    })
-    .join("");
-  console.log(categoryBtn);
-  buttonContainer.innerHTML = categoryBtn;
-  const filterBtns = document.querySelectorAll(".filter-btn");
-  filterBtns.forEach((btn) => {
-    btn.addEventListener("click", (e) => {
-      const category = e.currentTarget.dataset.id;
-      const menuCategroy = menu.filter((menuitem) => {
-        if (menuitem.category === category) {
-          return menuitem;
-        }
-      });
-      if (category === "all") {
-        displayMenuItems(menu);
-      } else {
-        displayMenuItems(menuCategroy);
-      }
+scrollLinks.forEach((link) => {
+  link.addEventListener("click", (e) => {
+    e.preventDefault();
+    const id = e.currentTarget.getAttribute("href").slice(1);
+    console.log(id);
+    const element = document.getElementById(id);
+    let position = element.offsetTop;
+    window.scrollTo({
+      left: 0,
+      top: position,
     });
+    linksContainer.style.height = 0;
   });
-}
+});
